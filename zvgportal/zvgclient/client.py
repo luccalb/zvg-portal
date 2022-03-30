@@ -18,4 +18,4 @@ class ZvgClient:
             value_limit=self.query.value_limit,
             btermin=self.query.btermin)
         r = requests.post(SEARCH_URL, data=data.__dict__, params=params)
-        return r
+        return r.text

@@ -1,3 +1,4 @@
+from zvgportal.parser.parser import parse_html
 from zvgportal.searchparams import BLand, SearchObject
 from zvgportal.zvgclient import ZvgClient
 
@@ -12,4 +13,6 @@ class ZvgSearch:
 
     def run(self):
         client = ZvgClient(self)
-        return client.search()
+        html = client.search()
+        parsed_objects = parse_html(html)
+        return parsed_objects
