@@ -1,9 +1,9 @@
-import io
 import re
 
 import lxml.html as hl
 
 file_no_regex = r"^(\s)*([0-9]{4}\s)?K(\s[0-9]{4})\/([0-9]{4})"
+
 
 def parse_html(raw_html):
     doc = hl.fromstring(raw_html)
@@ -15,3 +15,13 @@ def parse_html(raw_html):
         if match:
             print(" ".join(match.string.strip().split()[:-1]))
     return
+
+
+class Finding:
+    def __init__(self, file_no, market_value, district_court, date, description):
+        self.file_no = file_no
+        self.market_value = market_value,
+        self.district_court = district_court
+        self.date = date
+        self.description = description
+
